@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SHAMBHU JI RXL - Bill Entry</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- =====================================================
+         BILL HEADER
+    ====================================================== -->
+
+    <header class="bill-header">
+
+        <!-- SL NO -->
+        <div class="header-left">
+
+            <label>SL. NO.</label>
+
+            <input
+                type="text"
+                id="slNo"
+                value="7"
+            >
+
+        </div>
+
+
+        <!-- SHOP NAME -->
+        <div class="header-center">
+
+            <input
+                type="text"
+                id="shopName"
+                value="SHAMBHU JI RXL"
+                class="shop-name"
+            >
+
+            <div class="estimate">
+                &lt;&lt; ROUGH ESTIMATE &gt;&gt;
+            </div>
+
+        </div>
+
+
+        <!-- DATE + TIME -->
+        <div class="header-right">
+
+            <div>
+                <label>DATE</label>
+
+                <div
+                    id="liveDate"
+                    class="date-time"
+                ></div>
+            </div>
+
+
+            <div>
+                <label>TIME</label>
+
+                <div
+                    id="liveTime"
+                    class="date-time"
+                ></div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CUSTOMER / PARTY
+    ====================================================== -->
+
+    <section class="customer-section no-print">
+
+        <div class="form-group">
+
+            <label>
+                Customer / Party
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter customer / party"
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                Bill Type
+            </label>
+
+            <select id="billType">
+
+                <option value="ROUGH ESTIMATE">
+                    Rough Estimate
+                </option>
+
+                <option value="FINAL BILL">
+                    Final Bill
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRINT CUSTOMER
+    ====================================================== -->
+
+    <div class="print-customer">
+
+        <strong>Customer / Party:</strong>
+
+        <span id="printCustomer"></span>
+
+    </div>
+
+
+    <!-- =====================================================
+         BILL TABLE
+    ====================================================== -->
+
+    <div class="table-container">
+
+        <table class="bill-table">
+
+            <thead>
+
+                <tr>
+
+                    <th class="amount">
+                        Amount
+                    </th>
+
+                    <th class="item">
+                        Item
+                    </th>
+
+                    <th class="weight">
+                        Weight
+                    </th>
+
+                    <th class="less">
+                        Less
+                    </th>
+
+                    <th class="net">
+                        Net Wt.
+                    </th>
+
+                    <th class="tunch">
+                        Tunch
+                    </th>
+
+                    <th class="lab">
+                        Lab.
+                    </th>
+
+                    <th class="fine">
+                        Fine
+                    </th>
+
+                    <th class="action no-print">
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="billBody"></tbody>
+
+
+            <!-- =================================================
+                 SUMMARY
+            ================================================== -->
+
+            <tbody class="summary">
+
+                <!-- NEW TOTAL -->
+
+                <tr class="new-total">
+
+                    <td id="newAmount">
+                    </td>
+
+                    <td>
+                        <strong>New Total</strong>
+                    </td>
+
+                    <td id="newWeight">
+                    </td>
+
+                    <td id="newLess">
+                    </td>
+
+                    <td id="newNet">
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td id="newFine">
+                    </td>
+
+                    <td class="no-print">
+                    </td>
+
+                </tr>
+
+
+                <!-- OLD BALANCE -->
+
+                <tr class="old-balance">
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="oldAmount"
+                        >
+
+                    </td>
+
+                    <td>
+
+                        <strong>
+                            Old Balance
+                        </strong>
+
+                        <input
+                            type="text"
+                            id="oldDate"
+                            placeholder="Date"
+                            class="old-date"
+                        >
+
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="oldFine"
+                        >
+
+                    </td>
+
+                    <td class="no-print">
+                    </td>
+
+                </tr>
+
+
+                <!-- TOTAL -->
+
+                <tr class="total-row">
+
+                    <td id="totalAmount">
+                    </td>
+
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td id="totalFine">
+                    </td>
+
+                    <td class="no-print">
+                    </td>
+
+                </tr>
+
+
+                <!-- JAMA TOTAL -->
+
+                <tr class="jama-row">
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="jamaAmount"
+                        >
+
+                    </td>
+
+                    <td>
+                        <strong>Jama Total</strong>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+
+                        <input
+                            type="text"
+                            id="jamaFine"
+                        >
+
+                    </td>
+
+                    <td class="no-print">
+                    </td>
+
+                </tr>
+
+
+                <!-- FINAL -->
+
+                <tr class="final-row">
+
+                    <td id="finalAmount">
+                    </td>
+
+                    <td>
+
+                        <strong>
+                            <span>(BAKI)</span>
+                            Final
+                        </strong>
+
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+
+                        <strong>
+                            (BAKI)
+                        </strong>
+
+                    </td>
+
+                    <td id="finalFine">
+                    </td>
+
+                    <td class="no-print">
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTES
+    ====================================================== -->
+
+    <section class="bottom-section">
+
+        <div class="return-text">
+            Only Agra Item Will Be Return...
+        </div>
+
+
+        <div class="dhada">
+
+            <span>
+                Dhada.
+            </span>
+
+            <input
+                type="text"
+                id="dhada"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PRINT DATE/TIME
+    ====================================================== -->
+
+    <div
+        id="printDateTime"
+        class="print-date-time"
+    ></div>
+
+
+    <!-- =====================================================
+         BUTTONS
+    ====================================================== -->
+
+    <div class="controls no-print">
+
+        <button
+            id="addItemBtn"
+            class="btn primary"
+        >
+            + Add Item
+        </button>
+
+
+        <button
+            id="addFiveBtn"
+            class="btn secondary"
+        >
+            + Add 5 Items
+        </button>
+
+
+        <button
+            id="saveBtn"
+            class="btn save"
+        >
+            Save Bill
+        </button>
+
+
+        <button
+            id="printBtn"
+            class="btn secondary"
+        >
+            Print Bill
+        </button>
+
+
+        <button
+            id="clearBtn"
+            class="btn danger"
+        >
+            Clear
+        </button>
+
+    </div>
+
+
+    <div
+        id="message"
+        class="message no-print"
+    ></div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

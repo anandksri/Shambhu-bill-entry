@@ -1,0 +1,1092 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    background: #e9e9e9;
+
+    color: #111;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+
+    width: calc(100% - 30px);
+
+    max-width: 1500px;
+
+    margin: 20px auto;
+
+    padding: 28px;
+
+    background: #fff;
+
+    box-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.bill-header {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 2fr 1fr;
+
+    align-items: start;
+
+    min-height: 95px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 2px solid #111;
+
+}
+
+
+/* LEFT */
+
+.header-left {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+}
+
+
+.header-left label,
+.header-right label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+}
+
+
+.header-left input {
+
+    width: 65px;
+
+    height: 32px;
+
+    padding: 5px;
+
+    border: 1px solid #ccc;
+
+    font-size: 14px;
+
+}
+
+
+/* CENTER */
+
+.header-center {
+
+    text-align: center;
+
+}
+
+
+.shop-name {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+}
+
+
+.estimate {
+
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+}
+
+
+/* RIGHT */
+
+.header-right {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+}
+
+
+.date-time {
+
+    min-width: 100px;
+
+    margin-top: 5px;
+
+    padding: 8px;
+
+    border: 1px solid #ccc;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   CUSTOMER
+========================================================= */
+
+.customer-section {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 15px;
+
+    margin: 18px 0;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.form-group label {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 40px;
+
+    padding: 8px;
+
+    border: 1px solid #ccc;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   PRINT CUSTOMER
+========================================================= */
+
+.print-customer {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+.bill-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+
+}
+
+
+/* Column widths */
+
+.bill-table th:nth-child(1) {
+    width: 9%;
+}
+
+.bill-table th:nth-child(2) {
+    width: 18%;
+}
+
+.bill-table th:nth-child(3) {
+    width: 10%;
+}
+
+.bill-table th:nth-child(4) {
+    width: 19%;
+}
+
+.bill-table th:nth-child(5) {
+    width: 9%;
+}
+
+.bill-table th:nth-child(6) {
+    width: 8%;
+}
+
+.bill-table th:nth-child(7) {
+    width: 12%;
+}
+
+.bill-table th:nth-child(8) {
+    width: 8%;
+}
+
+.bill-table th:nth-child(9) {
+    width: 7%;
+}
+
+
+.bill-table th,
+.bill-table td {
+
+    border: 1px solid #888;
+
+    padding: 4px;
+
+    vertical-align: middle;
+
+}
+
+
+.bill-table th {
+
+    height: 32px;
+
+    background: #f1f3f5;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.bill-table td {
+
+    min-height: 35px;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   INPUTS INSIDE ROWS
+========================================================= */
+
+.bill-table td input {
+
+    width: 100%;
+
+    min-width: 0;
+
+    height: 25px;
+
+    padding: 3px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+}
+
+
+.bill-table td input:focus {
+
+    background: #f5f7fa;
+
+}
+
+
+/* =========================================================
+   EXPRESSION RESULT
+========================================================= */
+
+.expression-wrap {
+
+    width: 100%;
+
+}
+
+
+.expression-result {
+
+    min-height: 10px;
+
+    font-size: 9px;
+
+    color: #777;
+
+}
+
+
+.expression-result.error {
+
+    color: #d00000;
+
+}
+
+
+/* =========================================================
+   NET / FINE
+========================================================= */
+
+.net-cell,
+.fine-cell {
+
+    text-align: center;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.delete-btn {
+
+    width: 32px;
+
+    height: 28px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #fecaca;
+
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary td {
+
+    height: 34px;
+
+    font-size: 13px;
+
+}
+
+
+.new-total {
+
+    border-top: 2px solid #111;
+
+    font-weight: bold;
+
+}
+
+
+.old-balance {
+
+    font-weight: 600;
+
+}
+
+
+.total-row {
+
+    border-top: 1px solid #666;
+
+    font-weight: bold;
+
+}
+
+
+.jama-row {
+
+    font-weight: bold;
+
+}
+
+
+.final-row {
+
+    border-top: 2px solid #111;
+
+    border-bottom: 2px solid #111;
+
+    font-weight: bold;
+
+}
+
+
+.final-row td {
+
+    height: 43px;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   SUMMARY INPUT
+========================================================= */
+
+.summary td input {
+
+    width: 100%;
+
+    height: 25px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 2px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   OLD DATE
+========================================================= */
+
+.old-date {
+
+    width: 90px !important;
+
+    margin-left: 5px;
+
+    font-size: 10px !important;
+
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.bottom-section {
+
+    margin-top: 8px;
+
+}
+
+
+.return-text {
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+}
+
+
+.dhada {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+
+}
+
+
+.dhada input {
+
+    width: 300px;
+
+    height: 28px;
+
+    border: none;
+
+    border-bottom: 1px solid #111;
+
+    outline: none;
+
+}
+
+
+/* =========================================================
+   PRINT DATE
+========================================================= */
+
+.print-date-time {
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    color: #555;
+
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+
+}
+
+
+.btn {
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+.primary {
+
+    background: #111827;
+
+    color: white;
+
+}
+
+
+.secondary {
+
+    background: #e5e7eb;
+
+    color: #111;
+
+}
+
+
+.save {
+
+    background: #166534;
+
+    color: white;
+
+}
+
+
+.danger {
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+}
+
+
+.message {
+
+    margin-top: 12px;
+
+    color: #166534;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .page {
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 10px;
+
+    }
+
+
+    .bill-header {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .header-center {
+
+        order: -1;
+
+    }
+
+
+    .header-right {
+
+        justify-content: flex-start;
+
+    }
+
+
+    .customer-section {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    @page {
+
+        size: A4 portrait;
+
+        margin: 8mm;
+
+    }
+
+
+    html,
+    body {
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 0;
+
+        background: white;
+
+    }
+
+
+    .page {
+
+        width: 100%;
+
+        max-width: none;
+
+        margin: 0;
+
+        padding: 0;
+
+        box-shadow: none;
+
+    }
+
+
+    /* Hide website controls */
+
+    .no-print {
+
+        display: none !important;
+
+    }
+
+
+    /* =====================================================
+       PRINT HEADER
+    ====================================================== */
+
+    .bill-header {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 2fr 1fr;
+
+        min-height: 65px;
+
+        padding-bottom: 7px;
+
+        border-bottom: 2px solid #111;
+
+    }
+
+
+    .header-left label,
+    .header-right label {
+
+        font-size: 8px;
+
+    }
+
+
+    .header-left input {
+
+        width: 45px;
+
+        height: auto;
+
+        padding: 0;
+
+        border: none;
+
+        font-size: 9px;
+
+    }
+
+
+    .shop-name {
+
+        padding: 0;
+
+        font-size: 20px;
+
+    }
+
+
+    .estimate {
+
+        margin-top: 2px;
+
+        font-size: 9px;
+
+    }
+
+
+    .header-right {
+
+        gap: 7px;
+
+    }
+
+
+    .date-time {
+
+        min-width: 55px;
+
+        padding: 0;
+
+        margin-top: 2px;
+
+        border: none;
+
+        font-size: 8px;
+
+    }
+
+
+    /* =====================================================
+       CUSTOMER
+    ====================================================== */
+
+    .print-customer {
+
+        display: block;
+
+        min-height: 23px;
+
+        padding: 5px 0;
+
+        border-bottom: 1px solid #111;
+
+        font-size: 9px;
+
+    }
+
+
+    /* =====================================================
+       TABLE
+    ====================================================== */
+
+    .table-container {
+
+        overflow: visible;
+
+    }
+
+
+    .bill-table {
+
+        width: 100%;
+
+        table-layout: fixed;
+
+    }
+
+
+    .bill-table th,
+    .bill-table td {
+
+        height: 21px;
+
+        padding: 2px 3px;
+
+        border: 1px solid #555;
+
+        font-size: 8.5px;
+
+        line-height: 1.1;
+
+    }
+
+
+    .bill-table th {
+
+        height: 22px;
+
+        background: white;
+
+        font-size: 8.5px;
+
+    }
+
+
+    .bill-table td input {
+
+        height: auto;
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+
+        font-size: 8.5px;
+
+        color: #111;
+
+    }
+
+
+    .expression-result {
+
+        display: none !important;
+
+    }
+
+
+    .net-cell,
+    .fine-cell {
+
+        font-size: 8.5px;
+
+    }
+
+
+    /* =====================================================
+       SUMMARY
+    ====================================================== */
+
+    .summary td {
+
+        height: 22px;
+
+        padding: 2px 3px;
+
+        font-size: 8.5px;
+
+    }
+
+
+    .summary td input {
+
+        height: auto;
+
+        padding: 0;
+
+        font-size: 8.5px;
+
+        font-weight: 700;
+
+    }
+
+
+    .old-date {
+
+        width: 65px !important;
+
+        font-size: 7.5px !important;
+
+    }
+
+
+    .final-row td {
+
+        height: 28px;
+
+        font-size: 9.5px;
+
+    }
+
+
+    /* =====================================================
+       BOTTOM
+    ====================================================== */
+
+    .bottom-section {
+
+        margin-top: 6px;
+
+    }
+
+
+    .return-text {
+
+        margin-bottom: 5px;
+
+        font-size: 8.5px;
+
+    }
+
+
+    .dhada {
+
+        font-size: 8.5px;
+
+    }
+
+
+    .dhada input {
+
+        width: 180px;
+
+        height: 17px;
+
+    }
+
+
+    .print-date-time {
+
+        margin-top: 4px;
+
+        font-size: 7px;
+
+    }
+
+
+    tr {
+
+        page-break-inside: avoid;
+
+    }
+
+}
